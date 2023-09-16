@@ -45,10 +45,11 @@ const fetchpage=async(lat,lon)=>{
         .replace("{API key}", Apikey2);
         const response2 =await fetch(`${url2}`);
         const data2 =await response2.json();
-        console.log(data2);
+        // console.log(data);
         const {temp,temp_max,temp_min}=data2.list[0].main
         const{name,country}=data2.city
-        console.log(name,country)
-        console.log(temp,temp_max,temp_min)
+        // console.log(name,country)
+        
     result.innerHTML='<div class="result">City Name:'+name+ '<br> Country:'+country+'<br>Temperature:'+(temp-273.15)+'<br>High:'+(temp_max-273.15)+'<br>Low:'+(temp_min-273.15)+'</div>';
+    console.log(process.env)
 }
