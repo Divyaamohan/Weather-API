@@ -1,5 +1,5 @@
 const weather_url="https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&exclude={part}&appid={API key}";
-const geo_url="http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}";
+const geo_url="https://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}";
 const Apikey='446156e9fd39b6b0d9e83d8a431f47bb';
 const Apikey2='66a9a5bab696331f963edd33598b7645';
 const form=document.querySelector(".form");
