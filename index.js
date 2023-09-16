@@ -22,14 +22,11 @@ const fetchdata =async(searchvalue)=>{
     .replace("{city name},{state code},{country code}", searchvalue)
     .replace('{limit}',5)
     .replace("{API key}", Apikey);
-      // console.log(url)
     try{
         const response =await fetch(`${url}`);
         const data =await response.json();
-        // console.log(data)
         const lat=data[0].lat;
         const lon=data[0].lon;
-        // console.log(lat,lon);
         fetchpage(lat,lon);
     }
     catch(error){
@@ -45,11 +42,8 @@ const fetchpage=async(lat,lon)=>{
         .replace("{API key}", Apikey2);
         const response2 =await fetch(`${url2}`);
         const data2 =await response2.json();
-        // console.log(data);
         const {temp,temp_max,temp_min}=data2.list[0].main
         const{name,country}=data2.city
-        // console.log(name,country)
-        
-    result.innerHTML='<div class="result">City Name:'+name+ '<br> Country:'+country+'<br>Temperature:'+(temp-273.15)+'<br>High:'+(temp_max-273.15)+'<br>Low:'+(temp_min-273.15)+'</div>';
-    console.log(process.env)
+    result.innerHTML='<div class="result">City Name:'+name+ '<br> Country:'+country+'<br>Temperature:'+Math.floor(temp-273.15)+'<br>High:'+Math.round(temp_max-273.15)+'<br>Low:'+Math.round(temp_min-273.15)+'</div>';
+
 }
