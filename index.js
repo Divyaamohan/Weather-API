@@ -22,16 +22,11 @@ const fetchdata =async(searchvalue)=>{
     .replace("{city name},{state code},{country code}", searchvalue)
     .replace('{limit}',5)
     .replace("{API key}", Apikey);
-    try{
         const response =await fetch(`${url}`);
         const data =await response.json();
         const lat=data[0].lat;
         const lon=data[0].lon;
         fetchpage(lat,lon);
-    }
-    catch(error){
-      result.iinerHTML='<div class="error">Wgfh</div>';
-    }
 };
 
 const fetchpage=async(lat,lon)=>{
